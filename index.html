@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meditation</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="preloader">
+      <svg
+        class="preloader__image"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <path
+          fill="currentColor"
+          d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+        ></path>
+      </svg>
+    </div>
+    <main class="page">
+      <h1 class="title">Meditation app</h1>
+      <div class="video">
+        <video loop>
+          <source src="./video/rain.mp4" />
+        </video>
+      </div>
+      <section class="time-select">
+        <h2 class="visually-hidden">Select time</h2>
+        <button class="time-select__btn" type="button" data-time="120">
+          2 minutes
+        </button>
+        <button class="time-select__btn" type="button" data-time="300">
+          5 minutes
+        </button>
+        <button class="time-select__btn" type="button" data-time="600">
+          10 minutes
+        </button>
+      </section>
+      <section class="player">
+        <h2 class="visually-hidden">Player</h2>
+        <audio class="player__song">
+          <source src="./sounds/rain.mp3" />
+        </audio>
+        <div class="player__play">
+          <button
+            class="player__toggle"
+            type="button"
+            aria-label="Play/Pause"
+          ></button>
+          <svg
+            class="player__outline player__outline--time"
+            width="453"
+            height="453"
+            viewBox="0 0 453 453"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="226.5"
+              cy="226.5"
+              r="216.5"
+              stroke="white"
+              stroke-width="20"
+            />
+          </svg>
+          <svg
+            class="player__outline player__outline--move"
+            width="453"
+            height="453"
+            viewBox="0 0 453 453"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="226.5"
+              cy="226.5"
+              r="216.5"
+              stroke="#03a9f4"
+              stroke-width="20"
+            />
+          </svg>
+        </div>
+        <h2 class="player__time">0:00</h2>
+      </section>
+      <section class="sound-select">
+        <h2 class="visually-hidden">Select sound</h2>
+        <button
+          class="sound-select__btn sound-select__btn--beach"
+          type="button"
+          data-song="./sounds/beach.mp3"
+          data-video="./video/beach.mp4"
+          aria-label="Beach"
+        >
+          <img src="./svg/beach.svg" alt="Beach" />
+        </button>
+        <button
+          class="sound-select__btn sound-select__btn--rain"
+          type="button"
+          data-song="./sounds/rain.mp3"
+          data-video="./video/rain.mp4"
+          aria-label="Rain"
+        >
+          <img src="./svg/rain.svg" alt="Rain" />
+        </button>
+      </section>
+    </main>
+    <script>
+      window.onload = function () {
+        document.body.classList.add('loaded_hiding');
+        window.setTimeout(function () {
+          document.body.classList.add('loaded');
+          document.body.classList.remove('loaded_hiding');
+        }, 500);
+      }
+
+      const video = document.querySelector(".video");
+      console.log(video);
+      if (screen.width <= 768) {
+        video.parentNode.removeChild(video);
+      }
+    </script>
+    <script src="./script.js"></script>
+  </body>
+</html>
